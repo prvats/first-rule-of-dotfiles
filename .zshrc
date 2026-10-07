@@ -142,5 +142,10 @@ export OLLAMA_GPU_OVERHEAD=256000000
 [ -n "$XDG_RUNTIME_DIR" ] && [ -S "$XDG_RUNTIME_DIR/ssh-agent.socket" ] &&
   export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
 
+# bun
+export BUN_INSTALL="$HOME/.bun"
+[ -d "$BUN_INSTALL/bin" ] && export PATH="$BUN_INSTALL/bin:$PATH"
+[ -s "$BUN_INSTALL/_bun" ] && source "$BUN_INSTALL/_bun"
+
 # Personal / machine-local overrides — LAST so they win.
 [ -f "$HOME/.zshrc.local" ] && source "$HOME/.zshrc.local"
